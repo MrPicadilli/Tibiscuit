@@ -88,7 +88,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9494caa7ee80f6e4385e191ee0f242e8, type: 2}
+  - {fileID: 2100000, guid: a1c36e3f25c4cbb4a909eaad460a3314, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -147,6 +147,7 @@ MonoBehaviour:
   cam: {fileID: 0}
   agent: {fileID: 195871887324367816}
   character: {fileID: 0}
+  hasSeenPlayer: 0
 --- !u!1 &2225271143417803367
 GameObject:
   m_ObjectHideFlags: 0
