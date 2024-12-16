@@ -44,6 +44,7 @@ Le boublage se fait chez les nana biscuit directement sur le terrain en étant u
 
 ## Graphisme
 **Style : Low poly**
+
 **Biome : à voir**
 ### Environnement
 #### Skybox

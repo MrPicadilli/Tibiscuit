@@ -4,5 +4,7 @@ using UnityEngine;
 public class LevelData : ScriptableObject
 {
     public int Id;
+    public GameObject endCorridor;
     public ArrayInt[] mArray;
+
 }

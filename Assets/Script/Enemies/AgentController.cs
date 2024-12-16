@@ -17,7 +17,7 @@ public class AgentController : MonoBehaviour
 
     public int currentWaypointIndex = 0;
     public bool isForth = true;
-
+    public bool isDebug = false;
 
 
 
@@ -33,25 +33,39 @@ public class AgentController : MonoBehaviour
             return;
         }
         agent.updateRotation = false;
+        if (enemyPathData != null)
+        {
+            // Start moving to the first waypoint
+            MoveToWaypoint();
+        }
 
-        // Start moving to the first waypoint
-        MoveToWaypoint();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (enemyPathData.isCyclic)
+        if (GameManager.Instance.isGameOver)
         {
-            MoveCyclicly();
-
+            return;
+        }
+        if (isDebug)
+        {
+            MovebyMouse();
         }
         else
         {
-            MoveBackAndForth();
+            if (enemyPathData.isCyclic)
+            {
+                MoveCyclicly();
 
+            }
+            else
+            {
+                MoveBackAndForth();
+
+            }
         }
-        //MovebyMouse();
+
         FaceTarget();
 
     }
@@ -67,7 +81,7 @@ public class AgentController : MonoBehaviour
             if (isForth)
             {
 
-                if (currentWaypointIndex + 1 > enemyPathData.anchors.Count-1)
+                if (currentWaypointIndex + 1 > enemyPathData.anchors.Count - 1)
                 {
                     currentWaypointIndex = currentWaypointIndex - 1;
                     isForth = false;
@@ -151,6 +165,11 @@ public class AgentController : MonoBehaviour
     {
         hasSeenPlayer = true;
         agent.SetDestination(lastPositionPlayer);
+    }
+
+    private void OnCollisionStay(Collision other)
+    {
+        Debug.Log(other.gameObject.layer);
     }
 
 

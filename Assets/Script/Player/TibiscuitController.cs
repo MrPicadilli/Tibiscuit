@@ -19,6 +19,7 @@ public class TibiscuitController : MonoBehaviour
     public PlayerState currentState;
     public Barrier[] barriers;
     public AirCurrent[] airCurrents;
+    public bool isInAnimation = false;
 
 
     private void Awake()
@@ -97,8 +98,24 @@ public class TibiscuitController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
+        if (GameManager.Instance.isGameOver)
+        {
+            return;
+        }
+        if (!isInAnimation)
+        {
+            Move();
+        }
 
+
+    }
+    public void StopControl()
+    {
+        isInAnimation = true;
+    }
+    public void StartControl()
+    {
+        isInAnimation = false;
     }
 
     public void Move()
@@ -113,7 +130,6 @@ public class TibiscuitController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("collision with " + other.gameObject.name + " layer " + other.gameObject.layer);
-        Debug.Log(" vent : " + LayerMask.NameToLayer("Ventilation") + " water : " + LayerMask.NameToLayer("Water"));
         if (other.gameObject.layer == LayerMask.NameToLayer("Ventilation"))
         {
             Debug.Log("Ventilation");
@@ -123,6 +139,19 @@ public class TibiscuitController : MonoBehaviour
         {
             Debug.Log("Water");
             ChangeState(new HumidState(humidStateData));
+        }
+        if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        {
+            Debug.Log("Enemy");
+            GameManager.Instance.GameOver();
+        }
+    }
+    private void OnCollisionEnter(Collision other)
+    {
+        Debug.Log(other.gameObject.layer);
+        if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        {
+            GameManager.Instance.GameOver();
         }
     }
 }
