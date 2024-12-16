@@ -12,39 +12,84 @@ le gameplay : on bouge au clavier et il y a plusieurs nana biscuit sur la map qu
 Le boublage se fait chez les nana biscuit directement sur le terrain en étant un peu creepy du genre "mon chéri montre toi" ou autre + entre les niveaux on peut essayer de faire un dialogue entre tibiscuit et nana biscuitpour faire un semblant d'histoire
 
 
-# chose a faire
-
-## joueur
+# TODO
+## Développement
+### joueur
 * ~~faire bouger le joueur~~
 * ~~lui rajouter les mecanisme de gameplay spécifiques~~
     * ~~lui rajouter les etats sec et humide~~
     * ~~faire un changement de parametre en fonction des états~~
     * ~~rajouter les barreaux et les courants d'air~~
-## ennemie
+### ennemie
 * ~~faire bouger un enemies avec un navmesh~~
     * ~~le faire avec plusieurs enemies~~
 * ~~mettre un champ de vision visible par le joeur aux enemies~~
 * ~~faire que ce champ de vision active la poursuite de nana sur tibi~~
     * le faire pour tous les enemies sur la map
 * ~~faire que les enemies ont un chemin prédéfini  et qu'ils le suivent~~
-## terrain
+* regarder pour activer/désactiver la poursuite en fonction de la situation
+### terrain
 * ~~génération du terrain automatique pour pas avoir a chaque fois a changer de scene~~
-* ~~~~
-## UI
-* faire un menu
-* faire une pause
+### UI
+* faire un menu (peut etre)
+* faire une pause (peut etre)
+* faire un game over
+* faire un écran de discussion entre les niveaux
+
+### Optionnel
+
+* lors de la génération on peut faire une joli animation montante desceendante
+* les 4 premiers niveau on peut les finir par un escalier qui va vers le haut ou un couloir
+* dernier niveau le finir par une bouteille de lait
+
+## Graphisme
+**Style : Low poly**
+**Biome : à voir**
+### Environnement
+#### Skybox
+* a voir
+#### Tile
+* barriere
+* courant d'air
+* ventilation
+* eau
+* mur
+#### Personnage
+* modele 3D tibiscuit
+* animation de course tibiscuit
+* modele 3D nana biscuit
+* animation de course nana biscuit
+#### UI
+* ecran game over (armée de nana biscuit dans la maison ref video )
+* écran de avec en bas a gauche tibiscuit et en bas a droite nana biscuit
+* écran de victoire (cake kong qui détruit les nana biscuit) et victoire alternative (tibiscuit assis sur le canapé avec nana biscuit ref video)
+### Autres
+* sols
+* couloirs
 
 
+## Sonore
+
+### Doublages
+* les enemies génériques nana biscuit
+* écran de discussion entre tibiscuit et nana biscuit
+
+
+### Optionnel
+
+* son pour le courants d'air
+* son de marche
+* son de marche dans l'eau
 
 # idee
 
 ## terrain
 
 * essayer de faire un style pain d'épice / hansel et gretel
-* cube a hauteur basse
-* lors de la génération on peut faire une joli animation
-* les 4 premiers niveau on peut les finir par un escalier qui va vers le haut
-* dernier niveau le finir par une bouteille de lait
+* Mettre la caméra en vue isométrique
+
+
+
 
 pour l'instant : 
 
