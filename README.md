@@ -14,19 +14,19 @@ Le boublage se fait chez les nana biscuit directement sur le terrain en étant u
 
 ## joueur
 * ~~faire bouger le joueur~~
-* lui rajouter les mecanisme de gameplay spécifiques
+* ~~lui rajouter les mecanisme de gameplay spécifiques~~
     * ~~lui rajouter les etats sec et humide~~
     * ~~faire un changement de parametre en fonction des états~~
-    * rajouter les barreaux et les courants d'air
+    * ~~rajouter les barreaux et les courants d'air~~
 ## ennemie
 * ~~faire bouger un enemies avec un navmesh~~
-    * le faire avec plusieurs enemies
+    * ~~le faire avec plusieurs enemies~~
 * ~~mettre un champ de vision visible par le joeur aux enemies~~
 * ~~faire que ce champ de vision active la poursuite de nana sur tibi~~
     * le faire pour tous les enemies sur la map
-* faire que les enemies ont un chemin prédéfini  et qu'ils le suivent
+* ~~faire que les enemies ont un chemin prédéfini  et qu'ils le suivent~~
 ## terrain
-* génération du terrain automatique pour pas avoir a chaque fois a changer de scene
+* ~~génération du terrain automatique pour pas avoir a chaque fois a changer de scene~~
 * ~~~~
 ## UI
 * faire un menu

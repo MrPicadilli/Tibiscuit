@@ -17,6 +17,9 @@ public class TibiscuitController : MonoBehaviour
     private float inputY;
     private Renderer playerRenderer;
     public PlayerState currentState;
+    public Barrier[] barriers;
+    public AirCurrent[] airCurrents;
+
 
     private void Awake()
     {
@@ -32,25 +35,74 @@ public class TibiscuitController : MonoBehaviour
         playerRenderer = GetComponent<Renderer>();
         controller = GetComponent<CharacterController>();
         ChangeState(new NormalState(normalStateData));
-        
+        barriers = (Barrier[])FindObjectsOfType(typeof(Barrier));
+        airCurrents = (AirCurrent[])FindObjectsOfType(typeof(AirCurrent));
         //playerRenderer.material = currentState.GetMaterial();
-        
+
     }
     public void ChangeState(PlayerState newState)
     {
         currentState = newState;
         speed = newState.GetSpeed();
         playerRenderer.material = currentState.GetMaterial();
+        switch (currentState.GetName())
+        {
+            case "Dry":
+                UnlockAirCurrent();
+                LockBarrier();
+                break;
+            case "Humid":
+                UnlockBarrier();
+                LockAirCurrent();
+                break;
+            case "Normal":
+                LockBarrier();
+                LockAirCurrent();
+                break;
+            default:
+                LockBarrier();
+                LockAirCurrent();
+                break;
+        }
     }
 
+    public void UnlockBarrier()
+    {
+        foreach (Barrier barrier in barriers)
+        {
+            barrier.Desactivate();
+        }
+    }
+    public void UnlockAirCurrent()
+    {
+        foreach (AirCurrent airCurrent in airCurrents)
+        {
+            airCurrent.Desactivate();
+        }
+    }
+    public void LockBarrier()
+    {
+        foreach (Barrier barrier in barriers)
+        {
+            barrier.Activate();
+        }
+    }
+    public void LockAirCurrent()
+    {
+        foreach (AirCurrent airCurrent in airCurrents)
+        {
+            airCurrent.Activate();
+        }
+    }
     // Update is called once per frame
     void Update()
     {
         Move();
-        
+
     }
 
-    public void Move(){
+    public void Move()
+    {
         inputX = Input.GetAxis("Horizontal");
         inputY = Input.GetAxis("Vertical");
 
@@ -58,14 +110,17 @@ public class TibiscuitController : MonoBehaviour
         controller.Move(direction * speed * Time.deltaTime);
     }
 
-    private void OnTriggerEnter(Collider other) {
+    private void OnTriggerEnter(Collider other)
+    {
         Debug.Log("collision with " + other.gameObject.name + " layer " + other.gameObject.layer);
         Debug.Log(" vent : " + LayerMask.NameToLayer("Ventilation") + " water : " + LayerMask.NameToLayer("Water"));
-        if (other.gameObject.layer == LayerMask.NameToLayer("Ventilation")){
+        if (other.gameObject.layer == LayerMask.NameToLayer("Ventilation"))
+        {
             Debug.Log("Ventilation");
             ChangeState(new DryState(dryStateData));
         }
-        if(other.gameObject.layer == LayerMask.NameToLayer("Water")){
+        if (other.gameObject.layer == LayerMask.NameToLayer("Water"))
+        {
             Debug.Log("Water");
             ChangeState(new HumidState(humidStateData));
         }

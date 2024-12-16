@@ -11,7 +11,10 @@ public abstract class PlayerState
     {
         stateData = data;
     }
-
+    public string GetName()
+    {
+        return stateData.stateName;
+    }
     public Material GetMaterial()
     {
         return stateData.stateMaterial;
