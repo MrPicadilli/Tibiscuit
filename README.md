@@ -1,6 +1,8 @@
 # Tibiscuit
 Tibiscuit must survive the pursuit of his wife "nana biscuit" by hiding and managing to find bootle of milk to make him become Cake kong and end this madness.It is  It is a game made for the game jam : "Arcadia jam 6".
 
+it's the story after this : https://www.youtube.com/watch?v=xw2Fd3N5u08
+
 un peu à la metal gear un jeu d'infiltration ou tibiscuit doit s'enfuir/exterminer nana biscuit en vue du dessus ou on pourrait mettre 5 niveau avec un peu de scénario entre chaque niveau.
 
 le gameplay : on bouge au clavier et il y a plusieurs nana biscuit sur la map qui ont des chemins predetermine et il faut eviter le ligne de vue. Le but est d'aller récupérer la bouteille de lait pour devenir Cake Kong et exterminer les nana biscuit. On a 2 mécaniques qui peuvent etre sympa en lien avec le pain d'épices :
@@ -33,6 +35,7 @@ Le boublage se fait chez les nana biscuit directement sur le terrain en étant u
 * faire une pause
 
 
+
 # idee
 
 ## terrain
@@ -42,3 +45,7 @@ Le boublage se fait chez les nana biscuit directement sur le terrain en étant u
 * lors de la génération on peut faire une joli animation
 * les 4 premiers niveau on peut les finir par un escalier qui va vers le haut
 * dernier niveau le finir par une bouteille de lait
+
+pour l'instant : 
+
+![Différence entre une VM et un conteneur](./Assets/Video/gameplay.gif)
